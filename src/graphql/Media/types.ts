@@ -6,6 +6,7 @@ type Media {
   release_date: String
   vote_average: Float!
   type: MediaType!
+  genres: [String]
 }
 
 type MediaDetails {
@@ -40,5 +41,3 @@ enum MediaType {
   tv
 }
 `;
-
-const asd = "asdasd";

@@ -1,5 +1,6 @@
 import axios from "axios";
 import { MOVIE, TVSHOW } from "../../utils/interfaces";
+import { getGenres } from "../../utils/functions";
 
 interface QueryMediaDetailsArgs {
   id: number;
@@ -30,6 +31,7 @@ export const resolvers = {
         release_date: movie.release_date,
         vote_average: movie.vote_average,
         type: "movie",
+        genres: getGenres(movie.genre_ids),
       }));
       const mappedTvShows = tvShows.map((tvShow: TVSHOW) => ({
         id: tvShow.id,
@@ -38,6 +40,7 @@ export const resolvers = {
         release_date: tvShow.first_air_date,
         vote_average: tvShow.vote_average,
         type: "tv",
+        genres: getGenres(tvShow.genre_ids),
       }));
       return [...mappedMovies, ...mappedTvShows];
     },
