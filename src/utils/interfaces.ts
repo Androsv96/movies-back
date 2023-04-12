@@ -62,3 +62,31 @@ export interface TVSHOW_DETAIL {
   vote_average: number;
   production_companies: { id: number; name: string }[];
 }
+
+export interface User {
+  id: number;
+  name: string;
+  username: string;
+}
+
+interface RESULT_RATED_TVSHOW extends TVSHOW {
+  rating: number;
+}
+
+interface RESULT_RATED_MOVIE extends MOVIE {
+  rating: number;
+}
+
+export interface REATED_TVSHOW {
+  page: number;
+  results: RESULT_RATED_TVSHOW[];
+  total_pages: number;
+  total_results: number;
+}
+
+export interface REATED_MOVIE {
+  page: number;
+  results: RESULT_RATED_MOVIE[];
+  total_pages: number;
+  total_results: number;
+}

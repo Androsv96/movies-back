@@ -12,6 +12,7 @@ const typeDefs = `#graphql
 
   type Mutation {
     ${Authentication.mutations}
+    ${Media.mutations}
   }
 
 `;

@@ -15,6 +15,15 @@ interface QueryVariousMediaDetailsArgs {
   items: { id: number; type: "tv" | "movie" }[];
 }
 
+interface MutationAddRatingArgs {
+  inputData: {
+    mediaID: number;
+    type: "tv" | "movie";
+    rating: number;
+    session_id: string;
+  };
+}
+
 export const resolvers = {
   queries: {
     media: async (_, args: QueryMediaArgs) => {
@@ -110,6 +119,33 @@ export const resolvers = {
         }
       }
       return data;
+    },
+  },
+  mutations: {
+    addRating: (_, args: MutationAddRatingArgs) => {
+      const { mediaID, type, rating, session_id } = args.inputData;
+      if (type === "tv") {
+        return axios(
+          `https://api.themoviedb.org/3/tv/${mediaID}/rating?api_key=${process.env.API_KEY}&session_id=${session_id}`,
+          {
+            method: "POST",
+            data: { value: rating },
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        ).then((res) => res.data);
+      }
+      return axios(
+        `https://api.themoviedb.org/3/movie/${mediaID}/rating?api_key=${process.env.API_KEY}&session_id=${session_id}`,
+        {
+          data: { value: rating },
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      ).then((res) => res.data);
     },
   },
 };

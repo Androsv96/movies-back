@@ -9,4 +9,16 @@ export const types = `
         session_id: String
         success: Boolean
     }
+
+    type user {
+        id: Int
+        name: String
+        username: String
+        ratedMedia: [ratedMedia!]!
+    }
+
+    type ratedMedia {
+        id: Int!
+        rating: Float!
+    }
 `;

@@ -8,6 +8,7 @@ const resolvers = {
   },
   Mutation: {
     ...Authentication.resolvers.mutations,
+    ...Media.resolvers.mutations,
   },
 };
 

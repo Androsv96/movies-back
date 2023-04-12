@@ -1,3 +1,4 @@
 export const queries = `
-getRequestToken: requestToken!
+    getRequestToken: requestToken!
+    getUser(sessionId: String!): user!
 `;
