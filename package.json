@@ -6,7 +6,8 @@
   "scripts": {
     "compile": "tsc",
     "dev": "nodemon index.ts",
-    "lint": "eslint ./src/*"
+    "lint": "eslint ./src/*",
+    "start": "nodemon dist/index.js"
   },
   "keywords": [],
   "author": "",
