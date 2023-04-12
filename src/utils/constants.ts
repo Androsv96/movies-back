@@ -1,3 +1,5 @@
+export const BASE_API_URL = "https://api.themoviedb.org/3/";
+
 export const GENRE_LIST = [
   {
     id: 28,
