@@ -16,6 +16,10 @@ To get started with this API, you will need to have Node.js and npm installed on
 
 - Run npm run lint to run the ESLinter.
 
+## Frontend
+
+[Here](https://github.com/Androsv96/movies-front) is the link to the web app git repository.
+
 ## Production
 
 [Here](movies-5jadqqq4t-androsv96.vercel.app) is the link of the API deployed in heroku.
